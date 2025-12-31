@@ -104,22 +104,27 @@ function setupKeyboard() {
         kb.appendChild(b);
     });
 }
+// ... (tutto il resto rimane uguale fino alla funzione revealLetter)
 
 function revealLetter(l) {
     const targets = document.querySelectorAll(`.tile[data-letter="${l}"]`);
     targets.forEach(t => {
+        t.classList.add('revealed'); // Aggiunge la classe che rende il testo nero
         t.innerText = l;
-        t.style.backgroundColor = "white";
     });
 }
 
 function revealSolution() {
     if(!confirm("Vuoi visualizzare la soluzione completa?")) return;
     document.querySelectorAll('.tile.active').forEach(t => {
+        t.classList.add('revealed');
         t.innerText = t.dataset.letter;
-        t.style.backgroundColor = "white";
     });
     document.querySelectorAll('.key').forEach(k => k.disabled = true);
 }
+
+// ...
+
+
 
 window.onload = init;
