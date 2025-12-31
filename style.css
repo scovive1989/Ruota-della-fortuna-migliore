@@ -1,54 +1,173 @@
 :root {
-    --bg-dark: #0b132b;
+    --menu-green: #113825;
+    --level-yellow: #ffed4a;
+    --tile-green: #006837;
     --neon-pink: #ff00ff;
-    --tile-empty: #006837;
-    --tile-active: #ffffff;
 }
 
-body {
-    background-color: var(--bg-dark);
+body, html { 
+    margin: 0; padding: 0; width: 100%; height: 100%; 
+    background: var(--menu-green); font-family: 'Arial Black', sans-serif; 
+    overflow: hidden; 
+    /* Evita lo zoom accidentale su iPhone al doppio tocco */
+    touch-action: manipulation; 
+}
+
+.screen { 
+    width: 100%; height: 100vh; display: flex; 
+    flex-direction: column; align-items: center; box-sizing: border-box; 
+}
+
+.hidden { display: none !important; }
+
+/* --- MENU PRINCIPALE --- */
+.menu-logo {
+    width: 85%;
+    max-width: 550px;
+    height: auto;
+    margin: 3vh 0; /* Margine dinamico basato sull'altezza */
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+}
+
+.search-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; 
+}
+
+#searchInput {
+    width: 85%;
+    max-width: 500px; 
+    height: 65px; /* Leggermente ridotto per mobile */
+    padding: 0 20px;
+    border-radius: 20px; 
+    border: 4px solid var(--level-yellow);
+    background: rgba(255, 255, 255, 0.1);
     color: white;
-    font-family: 'Arial Black', sans-serif;
-    margin: 0;
-    overflow: hidden;
+    font-size: 1.2rem;
+    font-family: inherit;
+    outline: none;
+    box-sizing: border-box;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.levels-list { 
+    width: 100%; flex: 1; overflow-y: auto; display: flex; 
+    flex-direction: column; align-items: center; gap: 12px; padding-bottom: 30px; 
+}
+
+.level-btn { 
+    width: 85%; max-width: 500px; background: var(--level-yellow); 
+    border: none; padding: 20px; border-radius: 18px; 
+    font-weight: bold; font-size: 1.2rem; color: #000; cursor: pointer; 
+}
+
+/* --- HEADER GIOCO --- */
+.game-header { 
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; 
+    width: 100%; 
+    padding: 10px 20px; 
+    box-sizing: border-box; 
+}
+
+.back-btn, .solve-btn {
+    width: 45%; /* Si adattano alla larghezza dello schermo */
+    max-width: 220px; 
+    height: 55px;     
+    border-radius: 30px;
+    font-size: 1.1rem;
+    background: #444; 
+    color: white; 
+    border: 2px solid #666; 
+}
+
+/* --- TABELLONE --- */
+.board-main-wrapper {
+    flex: 0 1 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    width: 100%;
+    padding: 10px 5px;
+    box-sizing: border-box;
 }
 
-.screen { width: 100%; text-align: center; }
-.hidden { display: none !important; }
-
-/* Menu iniziale */
-.logo-large { font-size: 3rem; margin-bottom: 30px; text-shadow: 0 0 10px var(--neon-pink); }
-.menu-box { background: #1c2541; padding: 40px; border-radius: 20px; border: 2px solid var(--neon-pink); display: inline-block; }
-.level-buttons button { 
-    display: block; width: 100%; padding: 15px; margin: 10px 0; 
-    background: var(--neon-pink); border: none; color: white; 
-    font-weight: bold; cursor: pointer; border-radius: 5px;
+.wheel-table {
+    border-collapse: separate; 
+    border-spacing: 2px; /* Spazio ridotto per far stare tutto su iPhone */
+    background: #333; padding: 8px; border: 6px solid #555;
+    border-radius: 12px;
 }
 
-/* Tabellone (Layout 12-14-14-12) */
-.board { 
-    background: #111; padding: 15px; border-radius: 30px; 
-    border: 6px solid #444; display: inline-flex; flex-direction: column; gap: 5px;
+.tile {
+    /* Il segreto della responsività: larghezza basata sulla viewport (vw) */
+    width: 6.5vw; 
+    height: 9vw;
+    max-width: 50px; 
+    max-height: 75px;
+    background-color: var(--tile-green);
+    border-radius: 3px; 
+    text-align: center;
+    font-size: 4.5vw; /* Font che si adatta alla casella */
+    font-weight: bold;
 }
-.row { display: grid; gap: 4px; justify-content: center; margin-bottom: 2px; }
-.r1, .r4 { grid-template-columns: repeat(12, 35px); }
-.r2, .r3 { grid-template-columns: repeat(14, 35px); }
 
-.tile { 
-    width: 35px; height: 50px; background: var(--tile-empty); 
-    border: 1px solid #004422; display: flex; justify-content: center; 
-    align-items: center; color: black; font-size: 20px;
+@media (min-width: 768px) { /* Correzioni per iPad/Tablet */
+    .tile { font-size: 30px; }
+    .wheel-table { border-spacing: 5px; padding: 15px; }
+    .back-btn, .solve-btn { height: 70px; font-size: 1.4rem; }
 }
-.tile.active { background: white; border: 2px solid var(--neon-pink); }
 
-/* Tastiera */
-.keyboard { margin-top: 30px; display: flex; flex-wrap: wrap; justify-content: center; max-width: 600px; gap: 5px; margin-left: auto; margin-right: auto; }
-.key { 
-    padding: 10px 15px; background: #3a506b; border: none; color: white; 
-    border-radius: 5px; cursor: pointer; font-size: 18px; 
+.tile.active { 
+    background: white; border: 2px solid var(--neon-pink); 
 }
-.key:disabled { background: #111; color: #444; cursor: not-allowed; }
+
+/* --- CATEGORIA --- */
+.category-tag {
+    flex: 1; /* Occupa lo spazio tra tabellone e tastiera */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: black;
+    width: 80%;
+    max-width: 400px;
+    max-height: 60px;
+    margin: 10px auto;
+    border-radius: 30px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* --- TASTIERA --- */
+.keyboard {
+    flex: 0 0 auto;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    padding: 10px 5px;
+    display: grid;
+    /* 9 tasti per riga su iPhone, perfetto per il tocco */
+    grid-template-columns: repeat(9, 1fr); 
+    gap: 6px;
+    justify-items: center;
+}
+
+.key {
+    width: 100%;
+    max-width: 60px;
+    height: 50px;
+    background: #eee; border: none; border-radius: 6px;
+    font-size: 1.3rem; font-weight: bold;
+}
+
+@media (min-width: 768px) { /* Tastiera più grande su iPad */
+    .keyboard { grid-template-columns: repeat(13, 1fr); padding: 20px; }
+    .key { height: 65px; font-size: 1.6rem; }
+}
+
+.key:disabled { background: #444; color: #888; box-shadow: none; }
