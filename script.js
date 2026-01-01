@@ -5,7 +5,32 @@ const livelli = [
     { id: 4, categoria: "LA SCIMMIA", frase: "IN MOTO INDOSSA IL CASCO DI BANANE" },
     { id: 5, categoria: "METE TURISTICHE", frase: "IN ANDALUSIA CORDOBA E SIVIGLIA" },
     { id: 6, categoria: "OGGETTI MITOLOGICI", frase: "IL VASO SCOPERCHIATO DI PANDORA" },
-    { id: 7, categoria: "NEGLI ABISSI", frase: "IL TRIDENTE DI POSEIDONE" }
+    { id: 7, categoria: "NEGLI ABISSI", frase: "IL TRIDENTE DI POSEIDONE" },
+  { id: 201, categoria: "1969 - NEW YORK", frase: "SBARCO SULLA LUNA DI NEIL ARMSTRONG" },
+    { id: 202, categoria: "1989 - BERLINO", frase: "CADUTA DEL MURO E RIUNIFICAZIONE" },
+    { id: 203, categoria: "1492 - PALOS", frase: "CRISTOFORO COLOMBO SCOPRE L AMERICA" },
+    { id: 204, categoria: "1945 - ROMA", frase: "FINE DELLA SECONDA GUERRA MONDIALE" },
+    { id: 205, categoria: "1789 - PARIGI", frase: "PRESA DELLA BASTIGLIA E RIVOLUZIONE" },
+    { id: 206, categoria: "79 DC - POMPEI", frase: "ERUZIONE DEL VESUVIO SULLA CITTA" },
+    { id: 207, categoria: "1912 - OCEANO ATLANTICO", frase: "AFFONDAMENTO DEL TRANSATLANTICO TITANIC" },
+    { id: 208, categoria: "1815 - WATERLOO", frase: "SCONFITTA DEFINITIVA DI NAPOLEONE" },
+    { id: 209, categoria: "1963 - DALLAS", frase: "ATTENTATO AL PRESIDENTE KENNEDY" },
+    { id: 210, categoria: "1929 - NEW YORK", frase: "IL GRANDE CROLLO DELLA BORSA" },
+    { id: 211, categoria: "1909 - PARIGI", frase: "PRIMO VOLO SULLA MANICA DI BLERIOT" },
+    { id: 212, categoria: "1901 - TERRANOVA", frase: "MARCONI RICEVE IL PRIMO SEGNALE RADIO" },
+    { id: 213, categoria: "1953 - LONDRA", frase: "INCORONAZIONE DELLA REGINA ELISABETTA" },
+    { id: 214, categoria: "1962 - CITTA DEL VATICANO", frase: "APERTURA DEL CONCILIO VATICANO SECONDO" },
+    { id: 215, categoria: "1936 - BERLINO", frase: "JESSE OWENS VINCE QUATTRO ORO" },
+    { id: 216, categoria: "1982 - MADRID", frase: "ITALIA CAMPIONE DEL MONDO DI CALCIO" },
+    { id: 217, categoria: "1990 - ROMA", frase: "NOTTI MAGICHE NEI MONDIALI ITALIANI" },
+    { id: 218, categoria: "1957 - ROMA", frase: "FIRMA DEI TRATTATI ISTITUTIVI DELLA CEE" },
+    { id: 219, categoria: "1977 - USA", frase: "ESCE AL CINEMA IL PRIMO STAR WARS" },
+    { id: 220, categoria: "1348 - FIRENZE", frase: "LA GRANDE PESTE NERA IN EUROPA" },
+    { id: 221, categoria: "1927 - PARIGI", frase: "LINDBERGH ATTERRA DOPO IL VOLO SOLO" },
+    { id: 222, categoria: "1961 - MOSCA", frase: "YURI GAGARIN NELLO SPAZIO" },
+    { id: 223, categoria: "1991 - MAASTRICHT", frase: "FIRMA DEL TRATTATO SULLA UNIONE EUROPEA" },
+    { id: 224, categoria: "1610 - PADOVA", frase: "GALILEO OSSERVA I SATELLITI DI GIOVE" },
+    { id: 225, categoria: "1954 - ITALIA", frase: "INIZIANO LE TRASMISSIONI DELLA RAI" }
 ];
 
 const rowCaps = [12, 14, 14, 12];
